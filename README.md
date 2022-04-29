@@ -1,6 +1,6 @@
-# Remix Blues Stack
+# Remix Jazz Stack
 
-![The Remix Blues Stack](./assets/images/readme.png)
+![The Remix Jazz Stack](./assets/images/readme.png)
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
