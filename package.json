@@ -1,5 +1,5 @@
 {
-  "name": "remix-template-remix",
+  "name": "jazz-template-remix",
   "private": true,
   "description": "",
   "license": "",
@@ -7,17 +7,26 @@
   "scripts": {
     "start": "remix-serve build",
     "build": "npm run build:css && remix build",
-    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "build:css": "tailwindcss -m -i ./assets/styles/app.css -o app/styles/app.css",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "repl": "moleculer-runner -c services.config.js --repl --hot app/services/**/*.service.js",
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "dc:up": "docker-compose -f env/development/docker-compose.yml up -d",
+    "dc:logs": "docker-compose -f env/development/docker-compose.yml logs -f",
+    "dc:down": "docker-compose -f env/development/docker-compose.yml down"
   },
   "dependencies": {
     "@remix-run/node": "^1.4.3",
     "@remix-run/react": "^1.4.3",
     "@remix-run/serve": "^1.4.3",
+    "dotenv": "^16.0.0",
+    "ioredis": "^4.27.9",
+    "moleculer": "^0.14.16",
+    "nats": "^2.2.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "redlock": "^4.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
@@ -30,6 +39,7 @@
     "daisyui": "^2.14.2",
     "eslint": "^8.11.0",
     "husky": "^7.0.4",
+    "moleculer-repl": "^0.6.6",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24"
   },
