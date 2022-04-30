@@ -1,6 +1,13 @@
-const { ServiceBroker } = require("moleculer")
+/**
+ * @typedef {import('moleculer').ServiceBroker} ServiceBroker Moleculer's Context
+ */
 
-let broker = ServiceBroker
+const { ServiceBroker } = require("moleculer")
+/**
+ * ServiceBroker is used to call microservices from the remix action or loader context.
+ * @type ServiceBroker
+ */
+let broker
 
 if (!global.__serviceBroker) {
   global.__serviceBroker = new ServiceBroker(require("./../services.config"))
